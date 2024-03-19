@@ -16,6 +16,7 @@ public class UsersService {
 
     public void updateUser(Users user){
         Users u = usersRepository.findById(user.getId()).get();
-        u.set
+        u.setUsername(user.getUsername());
+        u.setEmail(user.getEmail());
     }
 }
