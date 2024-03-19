@@ -1,6 +1,7 @@
 package it.RoomMates.entities;
 
 import it.RoomMates.enums.Employment;
+import it.RoomMates.enums.Sex;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.apache.catalina.User;
@@ -19,4 +20,10 @@ public class RoomMate {
 
     @Enumerated
     private Employment employment;
+
+    private String name;
+    private String surname;
+    private int age;
+    private Sex sex;
+
 }
