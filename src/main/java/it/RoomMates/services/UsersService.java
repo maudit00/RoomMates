@@ -11,20 +11,20 @@ public class UsersService {
     @Autowired
     private UsersRepository usersRepository;
 
-    public void saveUser(Users user){
-        usersRepository.save(user);
+    public Users saveUser(Users user){
+        return usersRepository.save(user);
     }
 
     public Users getById(int id){
         return usersRepository.findById(id).orElseThrow(()-> new NotFoundException("User not found!"));
     }
 
-    public void updateUser(int id, Users user){
+    public Users updateUser(int id, Users user){
         Users u = getById(id);
         u.setUsername(user.getUsername());
         u.setEmail(user.getEmail());
         u.setPassword(user.getPassword());
-        usersRepository.save(u);
+        return usersRepository.save(u);
     }
 
     public void delete(int id){
