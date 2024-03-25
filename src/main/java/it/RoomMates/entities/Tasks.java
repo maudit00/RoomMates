@@ -9,8 +9,8 @@ import java.time.LocalDate;
 @Entity
 public class Tasks {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_utenti")
-    @SequenceGenerator(name = "id_utenti", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_id")
+    @SequenceGenerator(name = "task_id", initialValue = 1, allocationSize = 1)
     private int id;
 
     @ManyToOne
