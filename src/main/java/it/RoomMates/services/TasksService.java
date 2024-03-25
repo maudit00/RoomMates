@@ -26,9 +26,25 @@ public class TasksService {
     }
     public Tasks save(TaskRequest task){
         Tasks t = new Tasks();
-        if (task.getIdUser() == )
         t.setDone(false);
-        t.setUser();
+        t.setUser(usersService.getById(task.getIdUser()));
+        t.setDescription(task.getDescription());
+        t.setDate(task.getDate());
+        return tasksRepository.save(t);
+    }
+
+    public Tasks update(int id, TaskRequest task){
+       Tasks t = getById(id);
+       t.setDate(task.getDate());
+       t.setUser(usersService.getById(task.getIdUser()));
+       t.setDescription(task.getDescription());
+       t.setDate(task.getDate());
+       return tasksRepository.save(t);
+    }
+
+    public void delete(int id){
+        Tasks t = getById(id);
+        tasksRepository.delete(t);
     }
 
 }
