@@ -6,12 +6,15 @@ import it.RoomMates.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsersService {
     @Autowired
     private UsersRepository usersRepository;
+    @Autowired
+    private PasswordEncoder encoder;
 
 
     public Page<Users> getAll(Pageable pageable){
@@ -30,7 +33,7 @@ public class UsersService {
         Users u = getById(id);
         u.setUsername(user.getUsername());
         u.setEmail(user.getEmail());
-        u.setPassword(user.getPassword());
+        u.setPassword(encoder.encode(user.getPassword()));
         return usersRepository.save(u);
     }
 
