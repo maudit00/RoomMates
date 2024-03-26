@@ -4,12 +4,19 @@ import it.RoomMates.entities.Users;
 import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsersService {
     @Autowired
     private UsersRepository usersRepository;
+
+
+    public Page<Users> getAll(Pageable pageable){
+        return usersRepository.findAll(pageable);
+    }
 
     public Users saveUser(Users user){
         return usersRepository.save(user);
