@@ -1,8 +1,8 @@
 package it.RoomMates.services;
 
-import it.RoomMates.entities.TaskRequest;
+import it.RoomMates.requests.TaskRequest;
 import it.RoomMates.entities.Tasks;
-import it.RoomMates.repositories.BillsRepository;
+import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.TasksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,7 +22,7 @@ public class TasksService {
     }
 
     public Tasks getById(int id){
-        return tasksRepository.getById(id);
+        return tasksRepository.findById(id).orElseThrow(()-> new NotFoundException("Tasks not found"));
     }
     public Tasks save(TaskRequest task){
         Tasks t = new Tasks();

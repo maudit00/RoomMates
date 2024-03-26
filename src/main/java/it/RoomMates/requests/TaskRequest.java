@@ -1,4 +1,4 @@
-package it.RoomMates.entities;
+package it.RoomMates.requests;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
