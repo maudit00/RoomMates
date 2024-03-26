@@ -1,6 +1,6 @@
 package it.RoomMates.services;
 
-import it.RoomMates.requests.TaskRequest;
+import it.RoomMates.requests.*;
 import it.RoomMates.entities.Tasks;
 import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.TasksRepository;
