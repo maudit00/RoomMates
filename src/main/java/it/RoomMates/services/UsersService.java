@@ -29,6 +29,10 @@ public class UsersService {
         return usersRepository.findById(id).orElseThrow(()-> new NotFoundException("User not found!"));
     }
 
+    public Users getByUsername(String username){
+        return usersRepository.findByUsername(username).orElseThrow(()-> new NotFoundException("User not Found!"));
+    }
+
     public Users updateUser(int id, Users user){
         Users u = getById(id);
         u.setUsername(user.getUsername());
