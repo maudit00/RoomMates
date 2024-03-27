@@ -8,6 +8,7 @@ import it.RoomMates.requests.UsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,13 @@ public class UsersService {
     public void delete(int id){
         Users u = getById(id);
         usersRepository.delete(u);
+    }
+
+    private void sendMail(String email){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("User Registration successfull");
+        message.setText("Welcome to RoomMates, we're glad you joined us. Start discover our web app and stop arguing with ur roommates");
     }
 
 }
