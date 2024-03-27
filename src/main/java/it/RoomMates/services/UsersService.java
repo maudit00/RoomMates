@@ -1,8 +1,10 @@
 package it.RoomMates.services;
 
 import it.RoomMates.entities.Users;
+import it.RoomMates.enums.Role;
 import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.UsersRepository;
+import it.RoomMates.requests.UsersRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,8 +23,13 @@ public class UsersService {
         return usersRepository.findAll(pageable);
     }
 
-    public Users saveUser(Users user){
-        return usersRepository.save(user);
+    public Users saveUser(UsersRequest user){
+        Users u = new Users();
+        u.setRole(Role.USER);
+        u.setPassword(encoder.encode(user.getPassword()));
+        u.setUsername(user.getUsername());
+        u.setEmail(user.getEmail());
+        return usersRepository.save(u);
     }
 
     public Users getById(int id){
@@ -33,7 +40,7 @@ public class UsersService {
         return usersRepository.findByUsername(username).orElseThrow(()-> new NotFoundException("User not Found!"));
     }
 
-    public Users updateUser(int id, Users user){
+    public Users updateUser(int id, UsersRequest user){
         Users u = getById(id);
         u.setUsername(user.getUsername());
         u.setEmail(user.getEmail());
