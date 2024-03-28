@@ -23,7 +23,7 @@ public class TasksController {
     @PostMapping
     public Tasks save(@RequestBody TaskRequest taskRequest){return tasksService.save(taskRequest);}
 
-    @PutMapping("/{id]")
+    @PutMapping("/{id}")
     public Tasks update(@PathVariable int id, @RequestBody TaskRequest taskRequest){ return tasksService.update(id, taskRequest);}
 
     @DeleteMapping("/{id}")
