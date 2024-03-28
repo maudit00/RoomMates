@@ -18,7 +18,7 @@ public class RoomMate {
     @JoinColumn(name = "user_id")
     private Users user;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Employment employment;
 
     private String name;

@@ -16,10 +16,12 @@ public class Users implements UserDetails {
     @SequenceGenerator(name = "id_utenti", initialValue = 1, allocationSize = 1)
     private int id;
 
+    @Column(unique = true)
     private String username;
+    @Column(unique = true)
     private String email;
     private String password;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Override

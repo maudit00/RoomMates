@@ -17,6 +17,6 @@ public class Proposals {
     private Users user;
 
     private String description;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private PropStatus status;
 }

@@ -19,6 +19,6 @@ public class Shifts {
     private Users user;
 
     private LocalDate date;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private ShiftType shiftType;
 }

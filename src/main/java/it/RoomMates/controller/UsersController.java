@@ -21,7 +21,7 @@ public class UsersController {
     @GetMapping
     public Page<Users> getAll(Pageable pageable) {return usersService.getAll(pageable);}
 
-    @GetMapping
+    @GetMapping("/{id}")
     public Users getById(@PathVariable int id){return usersService.getById(id);}
 
     @PostMapping
