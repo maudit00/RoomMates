@@ -1,5 +1,6 @@
 package it.RoomMates.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.RoomMates.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,13 +8,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
 public class Users implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_utenti")
-    @SequenceGenerator(name = "id_utenti", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
+    @SequenceGenerator(name = "user_id", initialValue = 1, allocationSize = 1)
     private int id;
 
     @Column(unique = true)
@@ -23,6 +25,36 @@ public class Users implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "tasks_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "task_id")
+    )
+    private List<Tasks> tasks;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "bill_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "bill_id")
+    )
+    private List<Bills> bills;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Shifts> shifts;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "creator")
+    private List<Tasks> taskCreated;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Proposals> proposals;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,9 +14,8 @@ public class Bills {
     @SequenceGenerator(name = "bill_id", initialValue = 1, allocationSize = 1)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @ManyToMany(mappedBy = "bills")
+    private List<Users> user;
 
     private String description;
     private double amount;

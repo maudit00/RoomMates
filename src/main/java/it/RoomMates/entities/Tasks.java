@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,9 +14,11 @@ public class Tasks {
     @SequenceGenerator(name = "task_id", initialValue = 1, allocationSize = 1)
     private int id;
 
+    @ManyToMany(mappedBy = "tasks")
+    private List<Users> user;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Users user;
+    private Users creator;
 
     private String description;
     private LocalDate date;

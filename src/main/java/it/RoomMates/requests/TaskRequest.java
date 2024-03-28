@@ -11,5 +11,5 @@ public class TaskRequest {
     private String description;
     @NotNull(message = "Date can't be null" )
     private LocalDate date;
-    private int idUser;
+    private int idCreator;
 }
