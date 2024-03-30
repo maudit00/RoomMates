@@ -52,6 +52,7 @@ public class Users implements UserDetails {
     @OneToMany(mappedBy = "creator")
     private List<Tasks> taskCreated;
 
+
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Proposals> proposals;

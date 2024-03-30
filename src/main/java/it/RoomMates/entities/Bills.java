@@ -14,7 +14,7 @@ public class Bills {
     @SequenceGenerator(name = "bill_id", initialValue = 1, allocationSize = 1)
     private int id;
 
-    @ManyToMany(mappedBy = "bills")
+    @ManyToMany(mappedBy = "bills", fetch = FetchType.EAGER)
     private List<Users> user;
 
     private String description;

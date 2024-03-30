@@ -13,5 +13,4 @@ public class BillRequest {
     private Double amount;
     @NotBlank(message = "Bill's deadline can't be null")
     private LocalDate deadline;
-
 }
