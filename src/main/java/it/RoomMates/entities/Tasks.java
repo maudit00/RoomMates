@@ -14,7 +14,7 @@ public class Tasks {
     @SequenceGenerator(name = "task_id", initialValue = 1, allocationSize = 1)
     private int id;
 
-    @ManyToMany(mappedBy = "tasks")
+    @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER)
     private List<Users> user;
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -1,13 +1,12 @@
 package it.RoomMates.controller;
 
 import it.RoomMates.entities.Tasks;
+import it.RoomMates.requests.AssignRequest;
 import it.RoomMates.requests.TaskRequest;
 import it.RoomMates.services.TasksService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,7 +29,7 @@ public class TasksController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) { tasksService.delete(id);}
+    @PatchMapping("/{id_task}/assign")
+    public Tasks assignToUser(@PathVariable int id_task, @RequestBody AssignRequest assignRequest){ return tasksService.assignTask(id_task, assignRequest.getUser_id());}
 
-    @PatchMapping("/{id}")
-    public Tasks assignToUser(@PathVariable int id_task, @Param("id_user") int id_user){ return tasksService.assignToUser(id_task,id_user);}
 }

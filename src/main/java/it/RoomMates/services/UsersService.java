@@ -1,5 +1,6 @@
 package it.RoomMates.services;
 
+import it.RoomMates.entities.Tasks;
 import it.RoomMates.entities.Users;
 import it.RoomMates.enums.Role;
 import it.RoomMates.exceptions.NotFoundException;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.scheduling.config.Task;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

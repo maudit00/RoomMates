@@ -1,6 +1,7 @@
 package it.RoomMates.controller;
 
 import com.cloudinary.Cloudinary;
+import it.RoomMates.entities.Tasks;
 import it.RoomMates.entities.Users;
 import it.RoomMates.requests.UsersRequest;
 import it.RoomMates.services.UsersService;
@@ -31,6 +32,8 @@ public class UsersController {
     public Users update(@PathVariable int id, @RequestBody UsersRequest usersRequest){
         return usersService.updateUser(id, usersRequest);
     }
+
+
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) { usersService.delete(id);}

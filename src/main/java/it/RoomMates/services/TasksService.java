@@ -45,18 +45,17 @@ public class TasksService {
        return tasksRepository.save(t);
     }
 
-    public Tasks assignToUser(int id_task,int id_user){
-        Tasks t = getById(id_task);
-        Users u = usersService.getById(id_user);
-        List<Users> currentUsers = t.getUser();
-        currentUsers.add(u);
-        t.setUser(currentUsers);
-        return tasksRepository.save(t);
-    }
 
     public void delete(int id){
         Tasks t = getById(id);
         tasksRepository.delete(t);
+    }
+
+    public Tasks assignTask(int id_task, int id_user){
+        Tasks task = getById(id_task);
+        Users user = usersService.getById(id_user);
+        task.getUser().add(user);
+        return tasksRepository.save(task);
     }
 
 }
