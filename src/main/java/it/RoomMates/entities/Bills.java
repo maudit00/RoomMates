@@ -20,4 +20,5 @@ public class Bills {
     private String description;
     private double amount;
     private LocalDate date;
+    private LocalDate deadline;
 }
