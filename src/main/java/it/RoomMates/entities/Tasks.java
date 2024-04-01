@@ -20,7 +20,7 @@ public class Tasks {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id")
     )
-    private List<Users> user;
+    private List<Users> users;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Users creator;

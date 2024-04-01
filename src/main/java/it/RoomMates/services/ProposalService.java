@@ -1,6 +1,7 @@
 package it.RoomMates.services;
 
 import it.RoomMates.entities.Proposals;
+import it.RoomMates.enums.PropStatus;
 import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.ProposalsRepository;
 import it.RoomMates.requests.ProposalRequest;
@@ -26,7 +27,7 @@ public class ProposalService {
         Proposals p = new Proposals();
         p.setDescription(proposal.getDescription());
         p.setUser(usersService.getById(proposal.getIdUser()));
-        p.setStatus(proposal.getStatus());
+        p.setStatus(PropStatus.PENDING);
         return proposalsRepository.save(p);
     }
 

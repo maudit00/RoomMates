@@ -57,7 +57,7 @@ public class TasksService {
     public void assignUserToTask(int id_task, int id_user){
         Tasks task = getById(id_task);
         Users user = usersService.getById(id_user);
-        task.getUser().add(user);
+        task.getUsers().add(user);
         tasksRepository.save(task);
     }
 
