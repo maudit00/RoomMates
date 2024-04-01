@@ -27,21 +27,11 @@ public class Users implements UserDetails {
     private Role role;
 
     @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "tasks_user",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "task_id")
-    )
+    @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER)
     private List<Tasks> tasks;
 
     @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "bill_user",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "bill_id")
-    )
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Bills> bills;
 
     @JsonIgnore

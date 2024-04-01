@@ -4,16 +4,21 @@ import it.RoomMates.entities.Bills;
 import it.RoomMates.entities.Users;
 import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.BillsRepository;
+import it.RoomMates.repositories.UsersRepository;
 import it.RoomMates.requests.BillRequest;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
 
 @Service
+@Transactional
 public class BillsService {
     @Autowired
     public BillsRepository billsRepository;
@@ -50,10 +55,12 @@ public class BillsService {
         billsRepository.delete(bill);
     }
 
-    public Bills assignBill(int id_bill, int id_user){
-        Bills bill = getById(id_bill);
-        Users user = usersService.getById(id_user);
-        bill.getUser().add(user);
-        return billsRepository.save(bill);
+    @Transactional
+    public void assignUserToBill(int bill_id, int user_id){
+        Bills bill = getById(bill_id);
+        Users user = usersService.getById(user_id);
+        bill.getUsers().add(user);
+        billsRepository.save(bill);
     }
+
 }

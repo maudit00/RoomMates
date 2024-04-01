@@ -1,5 +1,6 @@
 package it.RoomMates.services;
 
+import it.RoomMates.entities.Bills;
 import it.RoomMates.entities.Users;
 import it.RoomMates.requests.*;
 import it.RoomMates.entities.Tasks;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -51,11 +53,13 @@ public class TasksService {
         tasksRepository.delete(t);
     }
 
-    public Tasks assignTask(int id_task, int id_user){
+   @Transactional
+    public void assignUserToTask(int id_task, int id_user){
         Tasks task = getById(id_task);
         Users user = usersService.getById(id_user);
         task.getUser().add(user);
-        return tasksRepository.save(task);
+        tasksRepository.save(task);
     }
+
 
 }

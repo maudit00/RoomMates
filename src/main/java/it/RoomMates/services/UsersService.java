@@ -13,6 +13,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.config.Task;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsersService {
@@ -35,6 +36,7 @@ public class UsersService {
         return usersRepository.save(u);
     }
 
+    @Transactional(readOnly = true)
     public Users getById(int id){
         return usersRepository.findById(id).orElseThrow(()-> new NotFoundException("User not found!"));
     }
@@ -56,11 +58,13 @@ public class UsersService {
         usersRepository.delete(u);
     }
 
-    private void sendMail(String email){
+    public void sendMail(String email){
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("User Registration successfull");
         message.setText("Welcome to RoomMates, we're glad you joined us. Start discover our web app and stop arguing with ur roommates");
     }
+
+
 
 }

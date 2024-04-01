@@ -1,17 +1,16 @@
 package it.RoomMates.controller;
 
 import it.RoomMates.entities.Bills;
-import it.RoomMates.entities.Bills;
-import it.RoomMates.entities.Bills;
-import it.RoomMates.entities.Users;
-import it.RoomMates.requests.AssignRequest;
+import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.requests.BillRequest;
-import it.RoomMates.requests.TaskRequest;
 import it.RoomMates.services.BillsService;
 import it.RoomMates.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -34,11 +33,15 @@ public class BillsController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) { billsService.delete(id);}
-//
-//    @PatchMapping("/{id_bill}/assign")
-//    public Bills assignToUser(@PathVariable int id_bill, @RequestBody AssignRequest assignRequest){ return billsService.assignBill(id_bill, assignRequest.getUser_id());}
-    @PostMapping("/{bill_id}/assign/{user_id}")
-    public Bills assignUserToBill(@PathVariable int bill_id, @PathVariable int user_id){
-        return billsService.assignBill(bill_id, user_id);
+    @PutMapping("/{billId}/assign/{userId}")
+    public ResponseEntity<String> assignUserToBill(@PathVariable int billId, @PathVariable int userId) {
+        try {
+            billsService.assignUserToBill(billId, userId);
+            return ResponseEntity.ok("User assigned to bill successfully.");
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while assigning user to bill.");
+        }
     }
 }

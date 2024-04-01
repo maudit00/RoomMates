@@ -14,8 +14,13 @@ public class Bills {
     @SequenceGenerator(name = "bill_id", initialValue = 1, allocationSize = 1)
     private int id;
 
-    @ManyToMany(mappedBy = "bills", fetch = FetchType.EAGER)
-    private List<Users> user;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "bill_user",
+            joinColumns = @JoinColumn(name = "bill_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<Users> users; // Change mappedBy to "users
 
     private String description;
     private double amount;
