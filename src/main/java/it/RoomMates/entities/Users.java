@@ -27,7 +27,7 @@ public class Users implements UserDetails {
     private Role role;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     private List<Tasks> tasks;
 
     @JsonIgnore
