@@ -61,5 +61,10 @@ public class TasksService {
         tasksRepository.save(task);
     }
 
+    public void completeTask(int id){
+        Tasks task = getById(id);
+        task.setDone(true);
+        tasksRepository.save(task);
+    }
 
 }

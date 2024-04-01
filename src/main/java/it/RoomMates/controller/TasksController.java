@@ -43,6 +43,16 @@ public class TasksController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while assigning user to task.");
         }
-}
+}  @PutMapping("/{taskId}/complete/")
+    public ResponseEntity<String> completeATask(@PathVariable int taskId) {
+        try {
+            tasksService.completeTask(taskId);
+            return ResponseEntity.ok("User assigned to task successfully.");
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while trying to complete this task.");
+        }
+    }
 }
 
