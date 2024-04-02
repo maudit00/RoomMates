@@ -14,6 +14,6 @@ public class ShiftRequest {
 
     private int idUser;
 
-    @NotBlank(message = "ShifyType can't be null")
-    private ShiftType shiftType;
+    @NotBlank(message = "ShiftType can't be null")
+    private ShiftType shiftType ;
 }
