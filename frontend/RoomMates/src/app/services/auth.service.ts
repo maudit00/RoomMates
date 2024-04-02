@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   constructor(private http:HttpClient, private route:Router) {
     this.restoreSession()

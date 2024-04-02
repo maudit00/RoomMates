@@ -1,0 +1,18 @@
+@import '../../scss\ config/config.scss';
+.primBtn{
+
+  :hover {
+    background-color:darken($primary, 30%);
+    animation-duration: 1.5s;
+  }
+
+}
+.my-text{
+  font-size: 0.5rem;
+  @media (min-width: 768px) {
+  font-size: large;
+  }
+  @media (min-width: 768px) {
+  font-size: large;
+  }
+}
