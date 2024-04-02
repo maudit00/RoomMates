@@ -1,0 +1,18 @@
+ @import '../../scss\ config/config.scss';
+ a {
+  color: $primary;
+ }
+
+ img{
+  width: 150px;
+ }
+
+ .navbar-toggler-icon {
+  background-color: $primary;
+  border-radius: 15%;
+ }
+
+
+.navbar-toggler{
+  color: $primary;
+}

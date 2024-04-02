@@ -1,0 +1,22 @@
+@import '../../scss\ config/config.scss';
+#footer-container{
+  background-color: #ECEFF1;
+  color: black;
+}
+
+.social-bar{
+  background-color:$primary ;
+}
+
+.left{
+  color: #666;
+}
+
+.footer-bottom{
+  background-color: $secondary;
+  color:#ccc;
+}
+
+a {
+  color: $links;
+}

@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import './app/scss\ config/config.scss';
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Orbitron:wght@400..900&display=swap');
+
+h1 {
+  font-family: Dosis;
+  font-size: 2.8rem;
+  color:darken($primary,30%);
+  border: 1px solid darken($primary, 50%);
+@media (min-width: 768px){
+font-size: 5.5rem;
+}
+}
+
+h2 {
+  font-family:Dosis;
+font-size: 1.8rem;
+@media (min-width: 768px){
+font-size: 3rem;
+}
+}
+
+body {
+  background-color: lighten($primary, 20%);
+}
