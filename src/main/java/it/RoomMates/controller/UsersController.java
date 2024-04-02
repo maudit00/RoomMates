@@ -19,7 +19,7 @@ public class UsersController {
     @Autowired
     private Cloudinary cloudinary;
 
-    @GetMapping
+    @GetMapping("")
     public Page<Users> getAll(Pageable pageable) {return usersService.getAll(pageable);}
 
     @GetMapping("/{id}")
