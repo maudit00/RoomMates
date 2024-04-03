@@ -1,9 +1,16 @@
-<div class="card hover-transition">
+<div *ngIf="this.bill" class="card hover-transition">
   <div class="card-body">
     <h5 class="card-title">{{bill.description | uppercase}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Date of creation -- {{bill.date}}</h6>
-    <h6 class="card-subtitle mb-2 text-muted">Deadline -- {{bill.deadline}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Data di creazione boletta -- {{bill.date}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Scadenza -- {{bill.deadline}}</h6>
     <p class="card-text">{{bill.amount | currency:'EUR'}}</p>
     <a href="#" class="btn btn-success">Paga</a>
+  </div>
+</div>
+<div *ngIf="this.shift" class="card hover-transition">
+  <div class="card-body">
+    <h5 class="card-title">{{shift.shiftType | uppercase}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Data Turno-- {{shift.date}}</h6>
+    <p class="card-text">Creator - {{shift.user.username}}</p>
   </div>
 </div>

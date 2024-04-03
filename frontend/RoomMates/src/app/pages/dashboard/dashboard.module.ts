@@ -19,7 +19,7 @@ import { CardComponent } from './components/card/card.component';
     ProposteComponent,
     TurniComponent,
     DashHeaderComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     CommonModule,

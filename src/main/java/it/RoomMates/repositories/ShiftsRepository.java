@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShiftsRepository extends JpaRepository<Shifts, Integer>, PagingAndSortingRepository<Shifts, Integer> {
-    @Query("SELECT s FROM Shifts s where :shifts MEMBER OF shift.user")
+    @Query("SELECT s FROM Shifts s where :user MEMBER OF s.user")
     Page<Shifts> findByUser(Pageable pageable, Users user );
 }

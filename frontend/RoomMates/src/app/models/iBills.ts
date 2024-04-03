@@ -1,6 +1,8 @@
+import { iUser } from "./iUser"
+
 export interface iBills {
   id: number
-  users: any
+  users: iUser
   description: string
   amount: number
   date: string
