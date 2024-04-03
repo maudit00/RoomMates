@@ -1,5 +1,6 @@
 package it.RoomMates.controller;
 
+import it.RoomMates.entities.Bills;
 import it.RoomMates.entities.Shifts;
 import it.RoomMates.requests.ShiftRequest;
 import it.RoomMates.services.ShiftsService;
@@ -19,6 +20,8 @@ public class ShiftsController {
 
     @GetMapping("/{id}")
     public Shifts getById(@PathVariable int id){return shiftsService.getById(id);}
+    @GetMapping("/user/{id}")
+    public Page<Shifts> getByUserId(@PathVariable int id, Pageable pageable){return shiftsService.getUserShifts(pageable, id);}
 
     @PostMapping
     public Shifts save(@RequestBody ShiftRequest shiftRequest){return shiftsService.save(shiftRequest);}

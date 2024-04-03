@@ -1,4 +1,5 @@
 import { iBills } from "./iBills"
+import { iShifts } from "./iShifts"
 import { iUser } from "./iUser"
 
   export interface iPagesUser extends iPages {
@@ -6,6 +7,9 @@ import { iUser } from "./iUser"
   }
   export interface iPagesBills extends iPages {
   content:iBills[]
+  }
+  export interface iPagesShifts extends iPages {
+  content:iShifts[]
   }
   export interface iPages{
     totalElements: number

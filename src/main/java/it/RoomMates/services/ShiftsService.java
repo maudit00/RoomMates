@@ -1,7 +1,9 @@
 package it.RoomMates.services;
 
+import it.RoomMates.entities.Bills;
 import it.RoomMates.entities.Shifts;
 import it.RoomMates.entities.Tasks;
+import it.RoomMates.entities.Users;
 import it.RoomMates.exceptions.NotFoundException;
 import it.RoomMates.repositories.ShiftsRepository;
 import it.RoomMates.requests.ShiftRequest;
@@ -42,8 +44,8 @@ public class ShiftsService {
         Shifts s = getById(id);
         shiftsRepository.delete(s);
     }
-
-
-
-
+    public Page<Shifts> getUserShifts(Pageable pageable, int user_id){
+        Users user = usersService.getById(user_id);
+        return shiftsRepository.findByUser(pageable, user);
+    }
 }
