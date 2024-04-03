@@ -1,0 +1,13 @@
+<div class="container-fluid p-2">
+  <app-dash-header></app-dash-header>
+  <div class="dash-body d-flex w-100 glass flex-column align-items-center mb-3 py-3">
+    <p class="text-responsive bottom-curve-text">ID</p>
+    <p class="text-responsive">{{user.id}}</p>
+    <p class="text-responsive bottom-curve-text">USERNAME</p>
+    <p class="text-responsive">{{user.username | uppercase}}</p>
+    <p class="text-responsive bottom-curve-text">EMAIL</p>
+    <p class="text-responsive">{{user.email | uppercase}}</p>
+    <p class="text-responsive bottom-curve-text">RUOLO</p>
+    <p class="text-responsive">{{user.role | uppercase}}</p>
+  </div>
+</div>
