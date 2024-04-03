@@ -1,4 +1,5 @@
+import { iUser } from './iUser';
 export interface IAuthData {
-  username:string;
+  user:iUser;
   token:string;
 }

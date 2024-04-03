@@ -5,7 +5,7 @@
       <form #f="ngForm">
         <div class="d-flex flex-column align-items-center gap-2 mb-5">
 
-        <input type="text" placeholder="Username" required  name="nome"  #nome="ngModel" ngModel class="form-control text-center">
+        <input type="text" placeholder="Username" required  name="username"  #nome="ngModel" ngModel class="form-control text-center">
 
         <div *ngIf="nome.invalid && nome.dirty" class="  alert alert-warning">
           Devi inserire un username valido

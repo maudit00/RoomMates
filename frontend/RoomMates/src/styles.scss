@@ -26,3 +26,30 @@ font-size: 3rem;
 body {
   background-color: lighten($primary, 20%);
 }
+.text-responsive{
+  font-size: 0.7rem;
+  @media (min-width: 420px) {
+  font-size: 0.9rem;
+  }
+  @media (min-width: 768px) {
+  font-size: 1.3rem;
+  }
+  @media (min-width: 2560px) {
+  font-size: 3rem;
+  }
+}
+
+
+.title-responsive{
+  font-size: 0.9rem;
+  font-family:Dosis;
+  @media (min-width: 420px) {
+  font-size: 1.1rem;
+  }
+  @media (min-width: 768px) {
+  font-size: 1.5rem;
+  }
+  @media (min-width: 2560px) {
+  font-size: 3.5rem;
+  }
+}

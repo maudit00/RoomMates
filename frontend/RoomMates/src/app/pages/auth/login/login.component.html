@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row gap-3">
+    <div class="col-12">
+      <h1 class="text-center">Accedi con i tuoi dati personali!</h1>
+    </div>
+    <form #f="ngForm">
+    <div class="col-12">
+      <label for="username">Username</label>
+      <input type="username" required name="username" #email="ngModel" ngModel class="form-control">
+    </div>
+    <div class="col-12">
+      <label for="password">Password</label>
+        <input type="password" required name="password" #password="ngModel" ngModel class="form-control">
+    </div>
+    <div class="alert alert-warning" *ngIf="password.invalid && password.dirty">
+      <p class="text-center">Inserisci una password</p>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+      <button class="btn btn-primary" (click)="login()">Accedi</button>
+    </div>
+  </form>
+  </div>
+</div>

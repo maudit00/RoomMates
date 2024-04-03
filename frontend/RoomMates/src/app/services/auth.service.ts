@@ -17,8 +17,8 @@ export class AuthService {
     this.restoreSession()
   }
 
-  registerUrl:string = `${environment.URL}/register`;
-  loginUrl:string = `${environment.URL}/login`;
+  registerUrl:string = `${environment.URL}/auth/register`;
+  loginUrl:string = `${environment.URL}/auth/login`;
   jwt:JwtHelperService = new JwtHelperService();
   authSub = new BehaviorSubject<IAuthData | null>(null);
 
@@ -34,8 +34,8 @@ export class AuthService {
   return this.http.post<IAuthData>(this.loginUrl, data)
   .pipe(tap(data =>{
     this.authSub.next(data);
-    localStorage.setItem('token', JSON.stringify(data))
-    this.autoLogOut(data.token)
+    localStorage.setItem('token', JSON.stringify(data));
+    this.autoLogOut(data.token);
   }
   ));
   }
