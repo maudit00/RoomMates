@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  collapsed: boolean = false
+  collapsed: boolean = false;
+  isLogged: boolean = false;
+
+constructor(private authSvc:AuthService){
+  authSvc.isLogged$.subscribe(logged => this.isLogged = logged)
+}
+
+logout(){
+this.authSvc.logout()
+}
 
 }

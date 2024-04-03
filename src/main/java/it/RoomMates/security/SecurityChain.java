@@ -5,6 +5,7 @@ import it.RoomMates.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -36,7 +37,8 @@ public class SecurityChain {
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/tasks/**").permitAll());
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/bills/**").permitAll());
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/shifts/**").permitAll());
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/users/**").permitAll());
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers(HttpMethod.GET,"/users/**").permitAll());
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/users").hasAuthority(Role.ADMIN.name()));
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/**").denyAll());
 
         return httpSecurity.build();

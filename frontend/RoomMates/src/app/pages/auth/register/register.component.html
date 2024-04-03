@@ -2,6 +2,7 @@
   <div class="col-12">
     <p class="h3 text-center mb-5 mt-3">Form di Registrazione</p>
 
+      <div class="container-fluid">
       <form #f="ngForm">
         <div class="d-flex flex-column align-items-center gap-2 mb-5">
 
@@ -24,5 +25,6 @@
         <div class="alert alert-warning text-center align-self" *ngIf="f.invalid && f.dirty">Form non valido</div>
       </div>
       </form>
+      </div>
     <p class="text-center">Se sei già registrato clicca <a routerLink="/auth/login">Qui</a> per entrare!</p>
   </div>
