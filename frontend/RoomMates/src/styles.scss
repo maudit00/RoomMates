@@ -5,6 +5,8 @@
 @import 'bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Orbitron:wght@400..900&display=swap');
 
+
+
 h1 {
   font-family: Dosis;
   font-size: 2.8rem;
@@ -25,6 +27,7 @@ font-size: 3rem;
 
 body {
   background-color: lighten($primary, 20%);
+  font-family: Dosis;
 }
 .text-responsive{
   font-size: 0.7rem;
@@ -53,6 +56,7 @@ body {
   font-size: 3.5rem;
   }
 }
+
 .glass{
   background: rgba(255, 255, 255, 0.2);
 border-radius: 16px;
@@ -60,4 +64,19 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3);
+.green{
+background: rgba(111, 240, 155, 0.21);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.8px);
+-webkit-backdrop-filter: blur(10.8px);
+border: 1px solid rgba(111, 240, 155, 0.3);
+}
+}
+
+.bottom-curve-text{
+color: darken($primary,40%);
+border-bottom: 2px solid darken($primary,60%);
+border-radius: 15px ;
+padding-inline: 10px;
 }

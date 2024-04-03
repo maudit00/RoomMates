@@ -1,10 +1,16 @@
+import { iBills } from "./iBills"
 import { iUser } from "./iUser"
 
-  export interface iPages {
+  export interface iPagesUser extends iPages {
+  content:iUser[]
+  }
+  export interface iPagesBills extends iPages {
+  content:iBills[]
+  }
+  export interface iPages{
     totalElements: number
     totalPages: number
     size: number
-    content: iUser[]
     number: number
     sort: Sort
     numberOfElements: number
@@ -13,7 +19,6 @@ import { iUser } from "./iUser"
     last: boolean
     empty: boolean
   }
-
 
   export interface Sort {
     empty: boolean

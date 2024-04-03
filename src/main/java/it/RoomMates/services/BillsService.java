@@ -63,4 +63,9 @@ public class BillsService {
         billsRepository.save(bill);
     }
 
+    public Page<Bills> getUserBill(Pageable pageable, int user_id){
+        Users user = usersService.getById(user_id);
+    return billsRepository.findByUser(pageable, user);
+    }
+
 }

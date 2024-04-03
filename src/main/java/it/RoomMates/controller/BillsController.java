@@ -24,6 +24,8 @@ public class BillsController {
     public Page<Bills> getAll(Pageable pageable){return billsService.getAll(pageable);}
     @GetMapping("/{id}")
     public Bills getById(@PathVariable int id){return billsService.getById(id);}
+    @GetMapping("/user/{id}")
+    public Page<Bills> getByUserId(@PathVariable int id, Pageable pageable){return billsService.getUserBill(pageable, id);}
 
     @PostMapping
     public Bills save(@RequestBody BillRequest billRequest){return billsService.save(billRequest);}
