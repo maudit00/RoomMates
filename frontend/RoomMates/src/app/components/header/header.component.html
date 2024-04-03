@@ -17,16 +17,19 @@
           <a class="link text-responsive pb-3" aria-current="page" [routerLink]="'/'">Home</a>
         </li>
         <li class="nav-item">
-          <a class="link text-responsive pb-3" [routerLink]="'/auth/register'">Register</a>
+          <a class="link text-responsive pb-3" [routerLink]="'/home/servizi'">Servizi</a>
         </li>
         <li class="nav-item">
-          <a class="link text-responsive pb-3"  [routerLink]="'/auth/login'">Log-In</a>
+          <a class="link text-responsive pb-3" [routerLink]="'/home/chisono'">Chi Sono</a>
+        </li>
+        <li class="nav-item">
+          <a class="link text-responsive pb-3" [routerLink]="'/auth'">Autenticazione</a>
         </li>
         <li class="nav-item" *ngIf="isLogged">
-          <a class="link text-responsive pb-3" href="#">Dashboard</a>
+          <a class="link text-responsive pb-3" [routerLink]="'/dashboard'">Dashboard</a>
         </li>
         <li class="nav-item" *ngIf="isLogged">
-          <a class="link text-responsive pb-3" (click)="">LogOut</a>
+          <a class="link text-responsive pb-3" (click)="logout()">LogOut</a>
         </li>
       </ul>
     </div>
