@@ -1,10 +1,12 @@
 <div class="container-fluid p-2">
   <app-dash-header></app-dash-header>
+
   <div class="d-flex flex-row flex-wrap w-100 gap-2 justify-content-around">
     <button (click)="this.addMode = !this.addMode" class="btn btn-primary">
       Aggiungi
     </button>
   </div>
+
   <div class="container-fluid" *ngIf="this.addMode">
     <label for="description">Descrizione turno</label>
     <input type="text" class="form-control" [(ngModel)]="this.clone.description" name="description" />
@@ -21,24 +23,28 @@
     </div>
     <label for="userId">Id Utente da assegnare</label>
     <input type="number" name="userId" class="form-control" [(ngModel)]="this.clone.idUser" />
-    <div class="input-group d-flex flex-row justify-content-around">
-      <div>
-        <label for="cleaning" class="btn btn-warning">Pulizie</label>
-        <input type="radio" name="shiftType" id="cleaning" value="1" [(ngModel)]="this.clone.shiftType" />
-        <label for="trash" class="btn btn-warning">Portare fuori spazzatura</label>
-        <input type="radio" name="shiftType" id="trash" value="2" [(ngModel)]="this.clone.shiftType" />
-      </div>
-      <div>
-        <label for="grocery" class="btn btn-warning">Fare la spesa</label>
-        <input type="radio" name="shiftType" id="grocery" value="3" [(ngModel)]="this.clone.shiftType" />
-        <label for="shopping" class="btn btn-warning">Comprare</label>
-        <input type="radio" name="shiftType" id="shopping" value="4" [(ngModel)]="this.clone.shiftType" />
-      </div>
+    <div class="input-group d-flex ">
+      <input type="radio" name="shiftType" id="cleaning" value="1" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="trash" value="2" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="grocery" value="3" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="shopping" value="4" [(ngModel)]="this.clone.shiftType" />
     </div>
-    <div class="dash-body row glass mb-3 p-3" *ngIf="!this.addMode">
-      <div class="col-12 col-md-4 col-lg-3 col-xl-2 my-hover" *ngFor="let shift of shifts">
-        <app-card [shift]="shift"></app-card>
-      </div>
+    <div class="d-flex flex-row justify-content-around gap-1">
+      <label for="cleaning" class="btn btn-success">Pulizie</label>
+      <label for="trash" class="btn btn-success">Portare fuori spazzatura</label>
+      <label for="grocery" class="btn btn-success">Fare la spesa</label>
+      <label for="shopping" class="btn btn-success">Comprare</label>
+    </div>
+    <div class="my-4 d-flex flex-row justify-content-center">
+      <button class="btn btn-success" (click)="add(this.clone)">Salva</button>
+      <button class="btn btn-primary">Modifica</button>
+      <button class="btn btn-primary">Reset</button>
+    </div>
+
+  </div>
+  <div class="dash-body row glass mb-3 p-3" *ngIf="!this.addMode">
+    <div class="col-12 col-md-4 col-lg-3 col-xl-2 my-hover" *ngFor="let shift of shifts">
+      <app-card [shift]="shift"></app-card>
     </div>
   </div>
 </div>

@@ -29,4 +29,8 @@ export class TurniComponent {
     })
   }
 
+  add(shiftReq:iShiftRequest){
+    return this.shiftSvc.postNewShift(shiftReq);
+  }
+
 }
