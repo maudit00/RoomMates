@@ -9,6 +9,7 @@ import { ProposteComponent } from './components/proposte/proposte.component';
 import { TurniComponent } from './components/turni/turni.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 import { CardComponent } from './components/card/card.component';
+import { CrudMenuComponent } from './components/crud-menu/crud-menu.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CardComponent } from './components/card/card.component';
     TurniComponent,
     DashHeaderComponent,
     CardComponent,
+    CrudMenuComponent,
   ],
   imports: [
     CommonModule,
