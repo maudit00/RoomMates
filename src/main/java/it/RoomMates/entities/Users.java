@@ -36,7 +36,7 @@ public class Users implements UserDetails {
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<Shifts> shifts;
+    private List<Shifts> shiftsCreated;
 
     @JsonIgnore
     @OneToMany(mappedBy = "creator")

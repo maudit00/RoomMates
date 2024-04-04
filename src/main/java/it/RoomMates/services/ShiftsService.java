@@ -48,4 +48,11 @@ public class ShiftsService {
         Users user = usersService.getById(user_id);
         return shiftsRepository.findByUser(pageable, user);
     }
+
+    public Shifts assignUserToShift(int shift_id, int user_id){
+        Shifts shift = getById(shift_id);
+        Users user = usersService.getById(user_id);
+        shift.setUser(user);
+        return shiftsRepository.save(shift);
+    }
 }

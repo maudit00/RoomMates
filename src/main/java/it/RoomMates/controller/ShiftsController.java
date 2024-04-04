@@ -29,6 +29,8 @@ public class ShiftsController {
     @PutMapping("/{id}")
     public Shifts update(@PathVariable int id, @RequestBody ShiftRequest shiftRequest){ return shiftsService.update(id, shiftRequest);}
 
+    @PutMapping("/{shift_id}/assign/{user_id}")
+    public Shifts assginUserToShift(@PathVariable int shift_id, int user_id){ return shiftsService.assignUserToShift(shift_id, user_id);}
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) { shiftsService.delete(id);}
 }
