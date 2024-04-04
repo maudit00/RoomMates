@@ -1,42 +1,15 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
 <div class="container my-5">
   <!-- Footer -->
-  <footer
-          id="footer-container"
-          class="text-center text-lg-start text-dark"
-          >
+  <footer id="footer-container" class="text-center text-lg-start text-dark">
     <!-- Section: Social media -->
-    <section
-             class="d-flex social-bar justify-content-between p-4 text-white"
-             >
+    <section class="d-flex social-bar justify-content-between p-4 text-white">
       <!-- Left -->
       <div class="me-5 left">
-        <span>Get connected with us on social networks:</span>
+        <span class="text-center">Rimani sempre aggiornato sulle nuove realease</span>
       </div>
       <!-- Left -->
 
-      <!-- Right -->
-      <div>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      <!-- Right -->
     </section>
     <!-- Section: Social media -->
 
@@ -49,14 +22,17 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">RoomMates ®</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+              RoomMates è nata quasi come un esigenza, dopo anni di lavoro fuori casa, lavoro stagionale, ho notato come
+              basti veramente poco per
+              riuscire a rompere i delicati equilibri che ci sono tra i coinquilini. Per questo è nata come missione per
+              avvicinare persone che litigano
+              per cose stupide semplicemente perchè non messe in chiaro.
+
+              <a [routerLink]="'/auth/register'">Registrati Ora!</a>
+
+
             </p>
           </div>
           <!-- Grid column -->
@@ -64,22 +40,16 @@
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Products</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <h6 class="text-uppercase fw-bold">Sezioni</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
-              <a href="#!" class="text-dark"></a>
+              <a [routerLink]="'/auth'" class="text-dark">Autenticazione</a>
             </p>
             <p>
-              <a href="#!" class="text-dark">MDWordPress</a>
+              <a [routerLink]="'/chisono'" class="text-dark">Chi Sono</a>
             </p>
             <p>
-              <a href="#!" class="text-dark">BrandFlow</a>
-            </p>
-            <p>
-              <a href="#!" class="text-dark">Bootstrap Angular</a>
+              <a [routerLink]="'/servizi'" class="text-dark">Bootstrap Angular</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -87,23 +57,6 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Useful links</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p>
-              <a href="#!" class="text-dark">Your Account</a>
-            </p>
-            <p>
-              <a href="#!" class="text-dark">Become an Affiliate</a>
-            </p>
-            <p>
-              <a href="#!" class="text-dark">Shipping Rates</a>
-            </p>
-            <p>
-              <a href="#!" class="text-dark">Help</a>
-            </p>
           </div>
           <!-- Grid column -->
 
@@ -111,14 +64,10 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            <p><i class="fas fa-envelope mr-3"></i> </p>
-            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p><i class="fas fa-home mr-3"></i>Via Francesco Giramo, 29</p>
+            <p><i class="fas fa-envelope mr-3"></i>davide1193&#64;gmail.com </p>
+            <p><i class="fas fa-phone mr-3"></i> + 346 62 699 05</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -127,17 +76,10 @@
     </section>
     <!-- Section: Links  -->
 
-    <!-- Copyright -->
-    <div
-         class="text-center footer-bottom p-3"
-         >
-      © 2020 Copyright:
-      <a  href="https://mdbootstrap.com/"
-         >MDBootstrap.com</a
-        >
+    <div class="text-center footer-bottom p-3">
+
     </div>
-    <!-- Copyright -->
+    <p class="text-center">© 2024 RoomMates. Tutti i diritti riservati.
+    </p>
   </footer>
-  <!-- Footer -->
 </div>
-<!-- End of .container -->
