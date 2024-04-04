@@ -9,6 +9,7 @@ import { TurniComponent } from './components/turni/turni.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserModule
   ]
 })
 export class DashboardModule { }
