@@ -1,6 +1,19 @@
 <div class="container-fluid p-2">
   <app-dash-header></app-dash-header>
-  <div class="dash-body row glass mb-3 p-3">
+  <div class="d-flex flex-row flex-wrap w-100 gap-2 justify-content-around">
+    <button (click)="this.addMode = !this.addMode" class="btn btn-primary">Aggiungi</button>
+  </div>
+  <div class="row" *ngIf="this.addMode">
+
+    <label for="description">Descrizione turno</label>
+    <input type="text" class="form-control" [(ngModel)]="this.clone.description" name="description">
+    <div class="alert-warning" >
+    <p>La descrizione deve avere almeno 10 caratteri</p>
+    </div>
+    {{this.clone.description}}
+
+  </div>
+  <div class="dash-body row glass mb-3 p-3" *ngIf="!this.addMode">
   <div class="col-12 col-md-4 col-lg-3 col-xl-2 my-hover"*ngFor="let shift of shifts">
   <app-card [shift]="shift"></app-card>
   </div>

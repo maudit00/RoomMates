@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from 'express-serve-static-core';
 import { AuthService } from '../../services/auth.service';
 import { iUser } from '../../models/iUser';
+import { iShiftRequest } from '../../models/iShifts';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,5 @@ export class DashboardComponent {
       this.user = user.user;
     });
   }
-
-
 
 }

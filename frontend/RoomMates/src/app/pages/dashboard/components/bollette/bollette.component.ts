@@ -1,9 +1,8 @@
+import { iShiftRequest } from './../../../../models/iShifts';
 import { Component } from '@angular/core';
 import { iBills } from '../../../../models/iBills';
 import { AuthService } from '../../../../services/auth.service';
 import { BolletteService } from '../../../../services/bollette.service';
-import { iPagesBills } from '../../../../models/iPages';
-import { iUser } from '../../../../models/iUser';
 
 @Component({
   selector: 'app-bollette',
@@ -12,11 +11,8 @@ import { iUser } from '../../../../models/iUser';
 })
 export class BolletteComponent {
   bills!:iBills[];
-
-
   constructor(private billsSvc:BolletteService, private authSvc:AuthService){
   }
-
     ngOnInit(){
       this.authSvc.user$.subscribe(user =>{
         console.log(user?.user);

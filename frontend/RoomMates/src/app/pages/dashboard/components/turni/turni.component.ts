@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { iShifts } from '../../../../models/iShifts';
+import { iShiftRequest, iShifts } from '../../../../models/iShifts';
 import { ShiftService } from '../../../../services/shift.service';
 import { AuthService } from '../../../../services/auth.service';
 
@@ -10,6 +10,13 @@ import { AuthService } from '../../../../services/auth.service';
 })
 export class TurniComponent {
   shifts!:iShifts[];
+  addMode:boolean = false;
+  clone:iShiftRequest= {
+    description:"",
+    date:new Date,
+    idUser:0,
+    shiftType:0
+  }
 
   constructor(private shiftSvc:ShiftService, private authSvc:AuthService){
     this.authSvc.user$.subscribe(user =>{
@@ -19,4 +26,5 @@ export class TurniComponent {
       });
     })
   }
+
 }
