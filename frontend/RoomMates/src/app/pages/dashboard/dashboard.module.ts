@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { BolletteComponent } from './components/bollette/bollette.component';
@@ -9,7 +9,7 @@ import { TurniComponent } from './components/turni/turni.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgbAlertModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -26,7 +26,9 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
-    BrowserModule
+    NgbDatepickerModule,
+    NgbAlertModule,
+    JsonPipe
   ]
 })
 export class DashboardModule { }

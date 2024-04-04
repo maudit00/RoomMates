@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { iShiftRequest, iShifts } from '../../../../models/iShifts';
 import { ShiftService } from '../../../../services/shift.service';
 import { AuthService } from '../../../../services/auth.service';
+import { ShiftType } from '../../../../models/ShiftType.enum';
 
 @Component({
   selector: 'app-turni',
@@ -11,6 +12,7 @@ import { AuthService } from '../../../../services/auth.service';
 export class TurniComponent {
   shifts!:iShifts[];
   addMode:boolean = false;
+  shiftType!:ShiftType;
   clone:iShiftRequest= {
     description:"",
     date:new Date,

@@ -1,21 +1,44 @@
 <div class="container-fluid p-2">
   <app-dash-header></app-dash-header>
   <div class="d-flex flex-row flex-wrap w-100 gap-2 justify-content-around">
-    <button (click)="this.addMode = !this.addMode" class="btn btn-primary">Aggiungi</button>
+    <button (click)="this.addMode = !this.addMode" class="btn btn-primary">
+      Aggiungi
+    </button>
   </div>
-  <div class="row" *ngIf="this.addMode">
-
+  <div class="container-fluid" *ngIf="this.addMode">
     <label for="description">Descrizione turno</label>
-    <input type="text" class="form-control" [(ngModel)]="this.clone.description" name="description">
-    <div class="alert-warning" >
-    <p>La descrizione deve avere almeno 10 caratteri</p>
+    <input type="text" class="form-control" [(ngModel)]="this.clone.description" name="description" />
+    <div class="alert-warning" *ngIf="this.clone.description.length < 10">
+      <p class="text-center">La descrizione deve avere almeno 10 caratteri</p>
     </div>
-    {{this.clone.description}}
-
-  </div>
-  <div class="dash-body row glass mb-3 p-3" *ngIf="!this.addMode">
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 my-hover"*ngFor="let shift of shifts">
-  <app-card [shift]="shift"></app-card>
-  </div>
+    <label for="dp" class="text-center">Data Turno</label>
+    <div class="input-group mb-2">
+      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="this.clone.date" ngbDatepicker
+        #d="ngbDatepicker" />
+      <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
+        <i class="bi-calendar3"></i>
+      </button>
+    </div>
+    <label for="userId">Id Utente da assegnare</label>
+    <input type="number" name="userId" class="form-control" [(ngModel)]="this.clone.idUser" />
+    <div class="input-group d-flex flex-row justify-content-around">
+      <div>
+        <label for="cleaning" class="btn btn-warning">Pulizie</label>
+        <input type="radio" name="shiftType" id="cleaning" value="1" [(ngModel)]="this.clone.shiftType" />
+        <label for="trash" class="btn btn-warning">Portare fuori spazzatura</label>
+        <input type="radio" name="shiftType" id="trash" value="2" [(ngModel)]="this.clone.shiftType" />
+      </div>
+      <div>
+        <label for="grocery" class="btn btn-warning">Fare la spesa</label>
+        <input type="radio" name="shiftType" id="grocery" value="3" [(ngModel)]="this.clone.shiftType" />
+        <label for="shopping" class="btn btn-warning">Comprare</label>
+        <input type="radio" name="shiftType" id="shopping" value="4" [(ngModel)]="this.clone.shiftType" />
+      </div>
+    </div>
+    <div class="dash-body row glass mb-3 p-3" *ngIf="!this.addMode">
+      <div class="col-12 col-md-4 col-lg-3 col-xl-2 my-hover" *ngFor="let shift of shifts">
+        <app-card [shift]="shift"></app-card>
+      </div>
+    </div>
   </div>
 </div>
