@@ -24,10 +24,10 @@
     <label for="userId">Id Utente da assegnare</label>
     <input type="number" name="userId" class="form-control" [(ngModel)]="this.clone.idUser" />
     <div class="input-group d-flex ">
-      <input type="radio" name="shiftType" id="cleaning" value="1" [(ngModel)]="this.clone.shiftType" />
-      <input type="radio" name="shiftType" id="trash" value="2" [(ngModel)]="this.clone.shiftType" />
-      <input type="radio" name="shiftType" id="grocery" value="3" [(ngModel)]="this.clone.shiftType" />
-      <input type="radio" name="shiftType" id="shopping" value="4" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="cleaning" value="CLEANING" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="trash" value="TRASH_TAKE_OUT" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="grocery" value="GROCERY" [(ngModel)]="this.clone.shiftType" />
+      <input type="radio" name="shiftType" id="shopping" value="SHOPPING" [(ngModel)]="this.clone.shiftType" />
     </div>
     <div class="d-flex flex-row justify-content-around gap-1">
       <label for="cleaning" class="btn btn-success">Pulizie</label>

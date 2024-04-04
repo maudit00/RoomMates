@@ -15,7 +15,7 @@ export class TurniComponent {
   shiftType!:ShiftType;
   clone:iShiftRequest= {
     description:"",
-    date:new Date,
+    date:"",
     idUser:0,
     shiftType:0
   }
@@ -30,7 +30,9 @@ export class TurniComponent {
   }
 
   add(shiftReq:iShiftRequest){
-    return this.shiftSvc.postNewShift(shiftReq);
+    console.log(shiftReq);
+    this.addMode = false;
+    return this.shiftSvc.postNewShift(shiftReq).subscribe(shift => console.log(shift)), (err: any) => console.log(err) ;
   }
 
 }
