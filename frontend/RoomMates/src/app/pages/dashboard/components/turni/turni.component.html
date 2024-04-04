@@ -14,13 +14,7 @@
       <p class="text-center">La descrizione deve avere almeno 10 caratteri</p>
     </div>
     <label for="dp" class="text-center">Data Turno</label>
-    <div class="input-group mb-2">
-      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="this.clone.date" ngbDatepicker
-        #d="ngbDatepicker" />
-      <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
-        <i class="bi-calendar3"></i>
-      </button>
-    </div>
+    <input type="text" name="dp" class="form-control" placeholder="YYYY-MM-DD" [(ngModel)]="this.clone.date" />
     <label for="userId">Id Utente da assegnare</label>
     <input type="number" name="userId" class="form-control" [(ngModel)]="this.clone.idUser" />
     <div class="input-group d-flex ">

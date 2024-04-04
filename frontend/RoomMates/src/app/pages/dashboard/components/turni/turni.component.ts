@@ -27,6 +27,14 @@ export class TurniComponent {
         this.shifts = shift.content;
       });
     })
+    this.shiftSvc.shift$.subscribe(shift => {
+      if (shift)
+      this.shifts.push(shift)
+    });
+    this.shiftSvc.shiftRemoved$.subscribe(res => {
+      if (res)
+      this.shifts.filter(shift => shift.id === res.id)
+    })
   }
 
   add(shiftReq:iShiftRequest){
